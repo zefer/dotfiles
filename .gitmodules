@@ -1,3 +1,6 @@
 [submodule "vim/vim.symlink/bundle/molokai"]
 	path = vim/vim.symlink/bundle/molokai
 	url = https://github.com/mrtazz/molokai.vim.git
+[submodule "vim/vim.symlink/bundle/vim-colors-solarized"]
+	path = vim/vim.symlink/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
