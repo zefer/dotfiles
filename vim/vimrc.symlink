@@ -40,3 +40,23 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" tabs navigation
+" switch between previously active tabs
+let g:lasttab = 1
+map <c-tab> :exe "tabn ".g:lasttab<CR>
+map <c-s-tab> :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+" switch to specific tabs
+map <D-A-Right> gt
+map <D-A-Left> gT 
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
+
