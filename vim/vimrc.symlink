@@ -49,6 +49,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" ignore Sass cache files
+set wildignore+=tmp/**,*.scssc,*.sassc
+
 " tabs navigation
 " switch between previously active tabs
 let g:lasttab = 1
