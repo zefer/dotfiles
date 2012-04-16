@@ -72,3 +72,6 @@ map <D-8> 8gt
 map <D-9> 9gt
 map <D-0> :tablast<CR>
 
+let g:CommandTMaxHeight=20
+let g:CommandTMinHeight=4
+
