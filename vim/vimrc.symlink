@@ -72,6 +72,21 @@ map <D-8> 8gt
 map <D-9> 9gt
 map <D-0> :tablast<CR>
 
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  " Start the status line
+  set statusline=%f\ %m\ %r
+
+  " Add fugitive
+  set statusline+=%{fugitive#statusline()}
+
+  " Finish the statusline
+  set statusline+=\ Line:%l/%L
+  set statusline+=\ Col:%v
+  set statusline+=\ Buf:#%n
+endif
+
 let g:CommandTMaxHeight=20
 let g:CommandTMinHeight=4
 
