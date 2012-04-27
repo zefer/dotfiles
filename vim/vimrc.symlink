@@ -81,6 +81,7 @@ map <D-0> :tablast<CR>
 
 " text aligning
 if exists(":Tabularize")
+  let mapleader=","
   nmap <Leader>a= :Tabularize /=<CR>
   vmap <Leader>a= :Tabularize /=<CR>
   nmap <Leader>a: :Tabularize /:\zs<CR>
