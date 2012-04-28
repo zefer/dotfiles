@@ -90,17 +90,12 @@ endif
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
-
-  " Start the status line
-  set statusline=%f\ %m\ %r
-
-  " Add fugitive
-  set statusline+=%{fugitive#statusline()}
-
-  " Finish the statusline
-  set statusline+=\ Line:%l/%L
-  set statusline+=\ Col:%v
-  set statusline+=\ Buf:#%n
+  " left
+  set statusline=%f\ (%{&ft})\ #%n\ %m\ %r
+  " central
+  set statusline+=%=%-18(%3l,%02c%03V%)
+  " right
+  set statusline+=\ %{fugitive#statusline()}
 endif
 
 let g:CommandTMaxHeight=20
