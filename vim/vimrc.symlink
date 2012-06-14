@@ -114,3 +114,5 @@ function! <SID>StripTrailingWhitespace()
 endfunction
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespace()<CR>
 
+let g:slime_target = "tmux"
+
