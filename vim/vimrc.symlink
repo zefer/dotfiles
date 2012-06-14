@@ -7,8 +7,9 @@ set cursorline
 call pathogen#infect()
 filetype plugin indent on       " load file type plugins + indentation
 
+set t_Co=256
 set background=dark
-colorscheme molokai 
+colorscheme molokai
 set guifont=Inconsolata:h18
 
 "" Whitespace
@@ -67,7 +68,7 @@ map <c-s-tab> :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 " switch to specific tabs
 map <D-A-Right> gt
-map <D-A-Left> gT 
+map <D-A-Left> gT
 map <D-1> 1gt
 map <D-2> 2gt
 map <D-3> 3gt
