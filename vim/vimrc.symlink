@@ -48,9 +48,13 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 " Bubble single lines (using unimpaired)
 nmap <C-Up> [e
 nmap <C-Down> ]e
+nmap <M-xUp> [e
+nmap <M-xDown> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+vmap <M-xUp> [egv
+vmap <M-xDown> ]egv
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
