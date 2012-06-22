@@ -1,2 +1,1 @@
 set -o emacs
-
