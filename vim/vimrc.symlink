@@ -35,6 +35,9 @@ set incsearch                   " incremental searching
 set ignorecase                  " searches are case insensitive...
 set smartcase                   " ... unless they contain at least one capital letter
 
+" ignore Sass cache files
+set wildignore+=tmp/**,*.scssc,*.sassc
+
 " use comma as <Leader> key instead of backslash
 let mapleader=","
 
@@ -46,23 +49,29 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 if &term =~ '^screen'
-" tmux will send xterm-style keys when its xterm-keys option is on
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  " execute "set <xUp>=\e[1;*A"
+  " execute "set <xDown>=\e[1;*B"
+  " execute "set <xRight>=\e[1;*C"
+  " execute "set <xLeft>=\e[1;*D"
+
+  " map these ctrl-keys. Set up as custom escape sequences in iTerm e.g. ^up=[5A
+  map <Esc>[5A <C-Up>
+  map <Esc>[5B <C-Down>
+  map <Esc>[5C <C-Right>
+  map <Esc>[5D <C-Left>
+
+  " map ctrl-tab & ctrl-shift-tab. Set up as custom escape sequences in iTerm e.g. ^tab=[27;5;9~
+  map <Esc>[27;5;9~ <C-Tab>
+  map <Esc>[27;6;9~ <C-S-Tab>
 endif
 
 " Bubble single lines (using unimpaired)
 nmap <C-Up> [e
 nmap <C-Down> ]e
-nmap <M-xUp> [e
-nmap <M-xDown> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
-vmap <M-xUp> [egv
-vmap <M-xDown> ]egv
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -70,19 +79,25 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" buffers navigation
 " easy nav between next/previous buffers
-nnoremap <m-xRight> :bn<cr>
-nnoremap <m-xLeft> :bp<cr>
+nnoremap <C-Right> :bn<cr>
+nnoremap <C-Left> :bp<cr>
 
-" ignore Sass cache files
-set wildignore+=tmp/**,*.scssc,*.sassc
+" switch between previously active buffers
+if !exists('g:lastbuf')
+  let g:lastbuf = winbufnr(1)
+endif
+map <c-tab> :exe "buffer ".g:lastbuf<CR>
+map <c-s-tab> :exe "buffer ".g:lastbuf<CR>
+au BufLeave * let g:lastbuf = winbufnr(winnr())
 
 " tabs navigation
 " switch between previously active tabs
-let g:lasttab = 1
-map <c-tab> :exe "tabn ".g:lasttab<CR>
-map <c-s-tab> :exe "tabn ".g:lasttab<CR>
-au TabLeave * let g:lasttab = tabpagenr()
+" let g:lasttab = 1
+" map <c-tab> :exe "tabn ".g:lasttab<CR>
+" map <c-s-tab> :exe "tabn ".g:lasttab<CR>
+" au TabLeave * let g:lasttab = tabpagenr()
 " switch to specific tabs
 map <D-A-Right> gt
 map <D-A-Left> gT
