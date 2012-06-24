@@ -38,6 +38,9 @@ set smartcase                   " ... unless they contain at least one capital l
 " ignore Sass cache files
 set wildignore+=tmp/**,*.scssc,*.sassc
 
+" use the system clipboard
+" set clipboard=unnamed
+
 " use comma as <Leader> key instead of backslash
 let mapleader=","
 
