@@ -1,1 +1,2 @@
-set -o emacs
+bindkey -v
+set -o vi
