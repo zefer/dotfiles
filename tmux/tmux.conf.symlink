@@ -40,10 +40,10 @@ bind k select-pane -U
 bind l select-pane -R
 
 # resize panes like vim
-bind < resize-pane -L 8
-bind > resize-pane -R 8
-bind - resize-pane -D 8
-bind + resize-pane -U 8
+bind -r < resize-pane -L 5
+bind -r > resize-pane -R 5
+bind -r - resize-pane -D 5
+bind -r + resize-pane -U 5
 
 # split panes like vim
 bind s split-window -v
