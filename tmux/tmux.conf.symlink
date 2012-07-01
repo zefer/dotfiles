@@ -19,8 +19,9 @@ set -g mouse-utf8 on
 unbind-key C-b
 set -g prefix C-a
 
-# number panes from 1 not 0
+# number windows & panes from 1 not 0
 set -g base-index 1
+setw -g pane-base-index 1
 
 # control automatic window renaming
 setw -g automatic-rename off
