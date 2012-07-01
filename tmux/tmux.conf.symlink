@@ -28,7 +28,7 @@ setw -g automatic-rename off
 
 # reload config
 unbind r
-bind r source-file ~/.tmux.conf
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # put tmux copy buffer into osx clipboard
 bind-key y run-shell "tmux save-buffer - | reattach-to-user-namespace pbcopy"
