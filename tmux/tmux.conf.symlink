@@ -1,29 +1,29 @@
 # https://wiki.archlinux.org/index.php/Tmux
 
-# set-option -g default-command "reattach-to-user-namespace -l zsh"
+# set -g default-command "reattach-to-user-namespace -l zsh"
 set -g default-terminal "screen-256color"
-set-window-option -g xterm-keys on
+setw -g xterm-keys on
+setw -g mode-keys vi
+
 # no delay after pressing escape, so vim isn't painful
 set -sg escape-time 0
 
 # enable mouse controls
 set -g mode-mouse on
-set-option -g mouse-select-pane on
-set-option -g mouse-resize-pane on
-set-option -g mouse-select-window on
-set-option -g mouse-utf8 on
+set -g mouse-select-pane on
+set -g mouse-resize-pane on
+set -g mouse-select-window on
+set -g mouse-utf8 on
 
 # change control key
 unbind-key C-b
-set-option -g prefix C-a
+set -g prefix C-a
 
 # number panes from 1 not 0
-set-option -g base-index 1
+set -g base-index 1
 
 # control automatic window renaming
 setw -g automatic-rename off
-
-set-window-option -g mode-keys vi
 
 # reload config
 unbind r
