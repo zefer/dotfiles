@@ -44,6 +44,9 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 " use comma as <Leader> key instead of backslash
 let mapleader=","
 
+" clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
