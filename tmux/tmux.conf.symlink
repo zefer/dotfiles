@@ -48,6 +48,7 @@ bind -r + resize-pane -U 5
 # split panes like vim
 bind s split-window -v
 bind v split-window -h
+bind | split-window -h
 
 bind C-a send-prefix
 
