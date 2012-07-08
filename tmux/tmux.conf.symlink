@@ -70,7 +70,7 @@ set  -g status-justify centre
 set  -g status-left-length 40
 set  -g status-left "#[fg=green]Session: #S #[fg=yellow]#I #[fg=cyan]#P"
 set  -g status-left "#[fg=cyan]#S #P"
-set  -g status-right "#[fg=cyan]%d %b %R"
+set  -g status-right "#(battery Discharging) #[fg=cyan]%d %b %R"
 # status bar colours
 set  -g status-fg white
 set  -g status-bg black
