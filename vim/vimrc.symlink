@@ -44,6 +44,9 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 " use comma as <Leader> key instead of backslash
 let mapleader=","
 
+" an alternative mapping for escape key
+inoremap jj <ESC>
+
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
