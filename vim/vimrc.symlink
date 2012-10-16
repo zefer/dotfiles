@@ -138,7 +138,7 @@ if has("statusline") && !&cp
   " left
   set statusline=%f\ (%{&ft})\ #%n\ %m\ %r
   " central
-  set statusline+=%=%-18(%3l,%02c%03V%)
+  set statusline+=%=%-18(%3l,%02c%03V\ %P%)
   " right
   set statusline+=\ %{fugitive#statusline()}
 endif
