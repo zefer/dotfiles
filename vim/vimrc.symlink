@@ -38,6 +38,9 @@ set smartcase                   " ... unless they contain at least one capital l
 " ignore Sass cache files
 set wildignore+=tmp/**,*.scssc,*.sassc
 
+" don't create backup files when editting here. Added to allow crontanb edits
+set backupskip=/tmp/*,/private/tmp/*
+
 " use the system clipboard
 " set clipboard=unnamed
 
