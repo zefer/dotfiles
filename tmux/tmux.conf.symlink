@@ -30,6 +30,14 @@ setw -g automatic-rename off
 unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
+# copy & paste witin tmux
+# unbind [
+# bind Escape copy-mode
+unbind p
+bind p paste-buffer
+bind -t vi-copy 'v' begin-selection
+bind -t vi-copy 'y' copy-selection
+
 # put tmux copy buffer into osx clipboard
 bind-key y run-shell "tmux save-buffer - | reattach-to-user-namespace pbcopy"
 
