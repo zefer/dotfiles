@@ -169,3 +169,5 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespace()<CR>
 
 let g:slime_target = "tmux"
 
+" Convert Markdown to HTML and open to preview
+map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
