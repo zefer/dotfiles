@@ -1,7 +1,5 @@
 # Sets reasonable OS X defaults.
 #
-# Or, in other words, set shit how I like in OS X.
-#
 # The original idea (and a couple settings) were grabbed from:
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 #
@@ -24,6 +22,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 0
+
+# Menu bar: disable transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
 # FINDER
 
