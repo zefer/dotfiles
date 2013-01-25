@@ -1,1 +1,0 @@
-export PATH=/applications/android-sdk-mac_x86/platform-tools:/applications/android-sdk-mac_x86/tools:$PATH
