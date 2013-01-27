@@ -50,6 +50,12 @@ let mapleader=","
 " an alternative mapping for escape key
 inoremap jj <ESC>
 
+" move within 'displayed lines rather than 'physical' lines (for wordwrap)
+noremap k gk
+noremap j gj
+noremap 0 g0
+noremap $ g$
+
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
@@ -171,3 +177,16 @@ let g:slime_target = "tmux"
 
 " Convert Markdown to HTML and open to preview
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
+
+" Toggle word wrap
+noremap <silent> <Leader>w :call ToggleWrap()<CR>
+function! ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    setlocal nowrap
+  else
+    echo "Wrap ON"
+    setlocal wrap linebreak nolist
+    setlocal display+=lastline
+  endif
+endfunction
