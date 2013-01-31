@@ -10,8 +10,6 @@ filetype plugin indent on       " load file type plugins + indentation
 
 set background=dark
 colorscheme molokai
-" let g:molokai_original = 1
-set guifont=Inconsolata:h18
 
 "" Whitespace
 set nowrap                      " don't wrap lines
@@ -41,9 +39,6 @@ set wildignore+=tmp/**,*.scssc,*.sassc
 " don't create backup files when editting here. Added to allow crontanb edits
 set backupskip=/tmp/*,/private/tmp/*
 
-" use the system clipboard
-" set clipboard=unnamed
-
 " use comma as <Leader> key instead of backslash
 let mapleader=","
 
@@ -62,9 +57,6 @@ noremap $ g$
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" leader-a selects the whole document
-" :nnoremap a VggG
 
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
@@ -99,39 +91,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-
-" buffers navigation
-" easy nav between next/previous buffers
-nnoremap <C-Right> :bn<cr>
-nnoremap <C-Left> :bp<cr>
-
-" switch between previously active buffers
-if !exists('g:lastbuf')
-  let g:lastbuf = winbufnr(1)
-endif
-map <c-tab> :exe "buffer ".g:lastbuf<CR>
-map <c-s-tab> :exe "buffer ".g:lastbuf<CR>
-au BufLeave * let g:lastbuf = winbufnr(winnr())
-
-" tabs navigation
-" switch between previously active tabs
-" let g:lasttab = 1
-" map <c-tab> :exe "tabn ".g:lasttab<CR>
-" map <c-s-tab> :exe "tabn ".g:lasttab<CR>
-" au TabLeave * let g:lasttab = tabpagenr()
-" switch to specific tabs
-map <D-A-Right> gt
-map <D-A-Left> gT
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> :tablast<CR>
 
 " text aligning
 if exists(":Tabularize")
@@ -172,8 +131,6 @@ function! <SID>StripTrailingWhitespace()
     call cursor(l, c)
 endfunction
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespace()<CR>
-
-let g:slime_target = "tmux"
 
 " Convert Markdown to HTML and open to preview
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
