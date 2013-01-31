@@ -88,10 +88,10 @@ nnoremap <c-l> <c-w>l
 " text aligning
 if exists(":Tabularize")
   let mapleader=","
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
+  nnoremap <Leader>a= :Tabularize /=<CR>
+  vnoremap <Leader>a= :Tabularize /=<CR>
+  nnoremap <Leader>a: :Tabularize /:\zs<CR>
+  vnoremap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
 if has("statusline") && !&cp
