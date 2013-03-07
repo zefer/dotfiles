@@ -37,6 +37,10 @@ set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
 " use comma as <Leader> key instead of backslash
 let mapleader=","
+" convert to ruby 1.9 hash syntax
+map <Leader>ha :s/:\([^ ]*\)\(\s*\)=&gt;/\1:/g
+map <Leader>' :s/"/'/g<cr>
+map <Leader>so :so $MYVIMRC<cr>
 
 " an alternative mapping for escape key
 inoremap jj <ESC>
