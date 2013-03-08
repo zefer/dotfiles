@@ -51,8 +51,6 @@ inoremap jj <ESC>
 " move within 'displayed lines rather than 'physical' lines (for wordwrap)
 noremap k gk
 noremap j gj
-noremap 0 g0
-noremap $ g$
 
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
