@@ -51,9 +51,7 @@ bind -r > resize-pane -R 5
 bind -r - resize-pane -D 5
 bind -r + resize-pane -U 5
 
-# split panes like vim
-bind s split-window -v
-bind v split-window -h
+# split panes
 bind | split-window -h
 
 bind C-a send-prefix
