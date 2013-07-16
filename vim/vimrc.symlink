@@ -138,6 +138,7 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 let g:CommandTMaxHeight=20
 let g:CommandTMinHeight=4
+let g:CommandTHighlightColor='StatusLine'
 if &term =~ "xterm" || &term =~ "screen"
   let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
   let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
