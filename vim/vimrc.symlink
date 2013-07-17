@@ -23,6 +23,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nono/vim-handlebars'
+Bundle 'Valloric/YouCompleteMe'
 
 filetype plugin indent on       " load file type plugins + indentation
 
