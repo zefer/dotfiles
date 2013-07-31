@@ -72,6 +72,7 @@ map <Leader>" :s/'/"/g<cr>
 map <Leader>so :so $MYVIMRC<cr>
 map <Leader>g ::GitGutterToggle<cr>
 map <Leader>l :set invnumber<cr>
+map <Leader>8 :call ToggleColorColumn()<CR>
 
 " an alternative mapping for escape key
 inoremap jj <ESC>
@@ -172,5 +173,14 @@ function! ToggleWrap()
     echo "Wrap ON"
     setlocal wrap linebreak nolist
     setlocal display+=lastline
+  endif
+endfunction
+
+" Toggle colorcolumn
+function! ToggleColorColumn()
+  if &colorcolumn==80
+    setlocal colorcolumn=0
+  else
+    setlocal colorcolumn=80
   endif
 endfunction
