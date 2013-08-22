@@ -1,6 +1,5 @@
 # https://wiki.archlinux.org/index.php/Tmux
 
-set -g default-command "tmux rename-window zsh; reattach-to-user-namespace -l zsh"
 set  -g default-terminal "screen-256color"
 setw -g xterm-keys on
 setw -g mode-keys vi
@@ -31,13 +30,12 @@ unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 # copy & paste within tmux
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
-
-# copy & paste using OSX clipboard using prefix ctrl-c
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind y run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "tmux set-buffer $(reattach-to-user-namespace pbpaste); tmux paste-buffer"
+# http://robots.thoughtbot.com/post/55885045171/tmux-copy-paste-on-os-x-a-better-future
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 # move around panes with hjkl
 bind h select-pane -L
