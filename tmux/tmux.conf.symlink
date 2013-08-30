@@ -1,5 +1,7 @@
 # https://wiki.archlinux.org/index.php/Tmux
 
+# Enable native Mac OS X copy/paste
+set  -g default-command "/bin/zsh -c 'which reattach-to-user-namespace >/dev/null && exec reattach-to-user-namespace $SHELL -l || exec $SHELL -l'"
 set  -g default-terminal "screen-256color"
 setw -g xterm-keys on
 setw -g mode-keys vi
