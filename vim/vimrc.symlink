@@ -62,6 +62,12 @@ set smartcase                   " ... unless they contain at least one capital l
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
+" Enable basic mouse behaviour such as selecting & resizing windows
+set mouse=a
+if exists('$TMUX')  " Support resizing in tmux
+  set ttymouse=xterm2
+endif
+
 " write with sudo, for read-only files
 cmap w!! %!sudo tee > /dev/null %
 
