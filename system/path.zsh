@@ -9,3 +9,5 @@ export PATH=/usr/local/share/python:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
