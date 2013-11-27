@@ -30,7 +30,7 @@ Bundle 'jnwhiteh/vim-golang'
 "Bundle 'guns/vim-clojure-static'
 
 filetype plugin indent on       " load file type plugins + indentation
-set autoread                    " reload files when changed on disk
+" set autoread                    " reload files when changed on disk
 
 set t_Co=256
 syntax enable
