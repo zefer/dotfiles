@@ -80,6 +80,8 @@ map <Leader>so :so $MYVIMRC<cr>
 map <Leader>g ::GitGutterToggle<cr>
 map <Leader>l :set invnumber<cr>
 map <Leader>8 :call ToggleColorColumn()<CR>
+map <leader>gf :!gofmt -w %<cr>
+map <leader>gr :!go run %<cr>
 
 " an alternative mapping for escape key
 inoremap jj <ESC>
