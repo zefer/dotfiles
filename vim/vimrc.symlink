@@ -23,10 +23,11 @@ Bundle 'tpope/vim-endwise'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nono/vim-handlebars'
 Bundle 'Valloric/YouCompleteMe'
-" clojure
-Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-fireplace.git'
-Bundle 'guns/vim-clojure-static'
+Bundle 'jnwhiteh/vim-golang'
+"" clojure
+"Bundle 'tpope/vim-classpath'
+"Bundle 'tpope/vim-fireplace.git'
+"Bundle 'guns/vim-clojure-static'
 
 filetype plugin indent on       " load file type plugins + indentation
 set autoread                    " reload files when changed on disk
