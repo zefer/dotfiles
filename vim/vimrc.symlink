@@ -94,6 +94,9 @@ inoremap jj <ESC>
 noremap k gk
 noremap j gj
 
+" make :W do the same as :w
+command W w
+
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
