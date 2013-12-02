@@ -86,6 +86,7 @@ map <Leader>l :set invnumber<cr>
 map <Leader>8 :call ToggleColorColumn()<CR>
 map <leader>gf :!gofmt -w %<cr>
 map <leader>gr :!go run %<cr>
+map <Leader>ff :call FocusModeToggle()<cr>
 
 " an alternative mapping for escape key
 inoremap jj <ESC>
@@ -182,6 +183,24 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespace()<CR>
 
 " Convert Markdown to HTML and open to preview
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
+
+" Toggle 'focus mode' - hides UI junk for a more fullscreen-like view
+let g:FocusMode = 0
+function! FocusModeToggle()
+  if g:FocusMode==1
+    echo "CHAOS MODE"
+    windo set number
+    windo :GitGutterEnable
+    :MBEOpen
+    let g:FocusMode = 0
+  else
+    echo "FOCUS MODE"
+    :MBEClose
+    windo set nonumber
+    windo :GitGutterDisable
+    let g:FocusMode = 1
+  endif
+endfunction
 
 " Toggle word wrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
