@@ -95,7 +95,9 @@ noremap k gk
 noremap j gj
 
 " make :W do the same as :w
-command W w
+if !exists(':W')
+  command W w
+endif
 
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
