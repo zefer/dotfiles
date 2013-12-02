@@ -151,6 +151,8 @@ if has("statusline") && !&cp
   set statusline+=\ %{fugitive#statusline()} " right
 endif
 
+let g:miniBufExplStatusLineText = '%='
+
 " CommandT
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
