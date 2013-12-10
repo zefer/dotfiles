@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+puts "querying apps..."
+
+apps = `heroku apps`
+  .split("\n")
+  .reject{|s| s.start_with?('=')}
+  .map{|s| s.split(' ')[0]}
+  .compact
+
+puts "found #{apps.count} apps, querying dynos (this may take a few mins)...\n\n"
+
+apps = apps.map do |name|
+  dynos = `heroku ps -a #{name}`
+    .split("\n")
+    .select {|s| s.match(/^(\w*\.\d*):/)}
+    .map{|s| s.split(':').first}
+  { name: name, total: dynos.count, dynos: dynos }
+end.sort_by { |dynos| dynos[:total] }.reverse
+
+apps.each { |a| puts "(#{a[:total]}) #{a[:name]}: #{a[:dynos].join(', ')}" }
