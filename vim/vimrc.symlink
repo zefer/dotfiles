@@ -86,7 +86,7 @@ map <Leader>l :set invnumber<cr>
 map <Leader>8 :call ToggleColorColumn()<CR>
 map <leader>gf :!gofmt -w %<cr>
 map <leader>gr :!go run %<cr>
-map <Leader>ff :call FocusModeToggle()<cr>
+map <Leader>d :call DeclutterModeToggle()<cr>
 
 " an alternative mapping for escape key
 inoremap jj <ESC>
@@ -185,20 +185,20 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespace()<CR>
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
 
 " Toggle 'focus mode' - hides UI junk for a more fullscreen-like view
-let g:FocusMode = 0
-function! FocusModeToggle()
-  if g:FocusMode==1
-    echo "CHAOS MODE"
+let g:DeclutterMode = 0
+function! DeclutterModeToggle()
+  if g:DeclutterMode==1
+    echo "CLUTTER MODE"
     windo set number
     windo :GitGutterEnable
     :MBEOpen
-    let g:FocusMode = 0
+    let g:DeclutterMode = 0
   else
-    echo "FOCUS MODE"
+    echo "DECLUTTER MODE"
     :MBEClose
     windo set nonumber
     windo :GitGutterDisable
-    let g:FocusMode = 1
+    let g:DeclutterMode = 1
   endif
 endfunction
 
