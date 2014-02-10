@@ -11,3 +11,6 @@ alias ga='git add'
 alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gchurn='git log --name-only | grep .rb | sort | uniq -c | sort -nr | head'
+
+# typos
+alias gas=gs
