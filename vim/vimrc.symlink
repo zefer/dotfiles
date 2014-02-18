@@ -138,6 +138,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " text aligning
 if exists(":Tabularize")
   let mapleader=","
