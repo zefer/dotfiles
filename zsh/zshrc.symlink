@@ -20,3 +20,6 @@ compinit
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.sh) source $config_file
+
+# exports all env vars from .env in current dir, if present
+load_dotenv_vars
