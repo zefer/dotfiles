@@ -14,6 +14,11 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 # Always open everything in Finder's list view. This is important.
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
+# show full path in finder title bar
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
