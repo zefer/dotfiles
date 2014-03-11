@@ -29,7 +29,7 @@ setw -g automatic-rename off
 
 # reload config
 unbind r
-bind r source-file ~/.tmux.conf \; display "Reloaded!"
+bind r source-file ~/.tmux.conf \; set -q status-left-bg black\; display "Reloaded!"
 
 # copy & paste within tmux
 # http://robots.thoughtbot.com/post/55885045171/tmux-copy-paste-on-os-x-a-better-future
