@@ -9,6 +9,9 @@ setw -g mode-keys vi
 # no delay after pressing escape, so vim isn't painful
 set -sg escape-time 0
 
+# large scrollback
+set-option -g history-limit 6000
+
 # enable mouse controls
 set -g mode-mouse on
 set -g mouse-select-pane on
