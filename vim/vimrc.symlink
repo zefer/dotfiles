@@ -113,6 +113,14 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" code folding
+set foldmethod=indent
+set foldlevelstart=20
+nnoremap <Space> za
+if has("autocmd")
+  autocmd BufRead,BufNewFile *_spec.rb set foldlevel=2
+endif
+
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " text aligning
