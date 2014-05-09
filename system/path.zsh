@@ -1,5 +1,7 @@
 export PATH=".:bin:/usr/local/bin:/usr/local/sbin:$HOME/.sfs:$ZSH/bin:$PATH"
 
+export PATH=/usr/local/heroku/bin:$PATH
+
 export PATH=$HOME/.rvm/bin:$PATH
 
 # add global npm modules
