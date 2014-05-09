@@ -54,8 +54,12 @@ bind -r > resize-pane -R 5
 bind -r - resize-pane -D 5
 bind -r + resize-pane -U 5
 
-# split panes
-bind | split-window -h
+# split panes that use the same path
+bind | split-window -h -c "#{pane_current_path}"
+bind v split-window -h -c "#{pane_current_path}"
+bind '"' split-window -v -c "#{pane_current_path}"
+# new window that uses the same path
+bind c new-window -c "#{pane_current_path}"
 
 bind C-a send-prefix
 
