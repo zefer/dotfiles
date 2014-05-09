@@ -72,7 +72,7 @@ setw -g monitor-activity on
 set  -g visual-activity on
 set  -g status-justify centre
 set  -g status-left-length 40
-set  -g status-left "#[fg=cyan]#S #P"
+set  -g status-left "#[fg=cyan]#S"
 set  -g status-right "#(battery Discharging) #[fg=cyan]%d %b %R"
 # status bar colours
 set  -g status-fg white
