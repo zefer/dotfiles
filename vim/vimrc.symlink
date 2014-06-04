@@ -23,7 +23,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nono/vim-handlebars'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 "" clojure
 "Bundle 'tpope/vim-classpath'
 "Bundle 'tpope/vim-fireplace.git'
