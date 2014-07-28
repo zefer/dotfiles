@@ -5,3 +5,5 @@
 *.swp
 *.rbc
 .env
+.ruby-version
+.ruby-gemset
