@@ -2,6 +2,7 @@ MUSIC_HOST='http://music'
 
 alias play='music_control play'
 alias pause='music_control pause'
+alias skip='music_control next'
 alias playing=music_status
 alias music="open $MUSIC_HOST"
 
