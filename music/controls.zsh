@@ -27,3 +27,9 @@ function radio() {
   fi
   curl -X POST -d "path=BBCRADIO/$playlist.m3u" "$MUSIC_HOST/db/?cmd=addreplaceplay"
 }
+
+# play 1 massive random playlist
+function random() {
+  music_control "random 1"
+  curl -X POST -d "path=NAS/music" "$MUSIC_HOST/db/?cmd=addreplaceplay"
+}
