@@ -18,6 +18,7 @@ function music_status() {
 
 # usage 'radio', 'radio 4'. Defaults to 6 music
 function radio() {
+  music_control "random 0"
   station=${1:-6}
   if [ $station -eq 6 ]; then
     playlist="BBC $station Music"
