@@ -25,5 +25,5 @@ function radio() {
   else
     playlist="BBC Radio $station"
   fi
-  curl -X POST -d "path=BBCRADIO/$playlist.m3u" "$MUSIC_HOST/db/?cmd=addplay"
+  curl -X POST -d "path=BBCRADIO/$playlist.m3u" "$MUSIC_HOST/db/?cmd=addreplaceplay"
 }
