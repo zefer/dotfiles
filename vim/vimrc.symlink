@@ -72,6 +72,7 @@ set secure                      " disable unsafe commands in local .vimrc files
 
 if has("autocmd")
   autocmd BufRead,BufNewFile *.go set filetype=go noexpandtab
+  autocmd BufRead,BufNewFile *.less set filetype=css
 endif
 
 " write with sudo, for read-only files
