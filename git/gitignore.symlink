@@ -7,3 +7,4 @@
 .env
 .ruby-version
 .ruby-gemset
+.vimrc
