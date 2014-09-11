@@ -25,6 +25,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'fatih/vim-go'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'christoomey/vim-tmux-navigator'
 "" clojure
 "Bundle 'tpope/vim-classpath'
 "Bundle 'tpope/vim-fireplace.git'
