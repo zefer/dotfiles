@@ -1,19 +1,18 @@
-MUSIC_HOST='http://music'
+MUSIC_HOST='music'
 
-alias play='music_control play'
-alias pause='music_control pause'
-alias skip='music_control next'
 alias playing=music_status
-alias music="open $MUSIC_HOST"
+alias play='music_control play; playing'
+alias pause='music_control pause'
+alias skip='music_control next; playing'
+alias music="open http://$MUSIC_HOST"
 
 # usage: 'music_control play', music_control pause'
 function music_control() {
-  curl -sI "$MUSIC_HOST/command/?cmd=$1" | head -n 1
-  music_status
+  echo "$1\nclose" | nc $MUSIC_HOST 6600 > /dev/null
 }
 
 function music_status() {
-  curl -s $MUSIC_HOST/_player_engine.php | jq '. | {state, bitrate, fileext, currentsong, currentalbum, currentartist}'
+  echo "currentsong\nclose" | nc $MUSIC_HOST 6600 | grep -E "(^Artist|^Title|^Album|^file)"
 }
 
 # usage 'radio', 'radio 4'. Defaults to 6 music
@@ -25,11 +24,17 @@ function radio() {
   else
     playlist="BBC Radio $station"
   fi
-  curl -X POST -d "path=BBCRADIO/$playlist.m3u" "$MUSIC_HOST/db/?cmd=addreplaceplay"
+  music_control clear
+  music_control "load \"BBCRADIO/$playlist.m3u\""
+  music_control play
 }
 
 # play 1 massive random playlist
 function random() {
   music_control "random 1"
-  curl -X POST -d "path=NAS/music" "$MUSIC_HOST/db/?cmd=addreplaceplay"
+  music_control clear
+  music_control "add NAS/music"
+  music_control play
+  playing
 }
+
