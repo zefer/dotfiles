@@ -157,6 +157,7 @@ if has("statusline") && !&cp
 endif
 
 let g:miniBufExplStatusLineText = '%='
+let g:go_fmt_command = "goimports"
 
 " CommandT
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
