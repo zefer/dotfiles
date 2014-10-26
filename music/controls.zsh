@@ -25,7 +25,7 @@ function radio() {
     playlist="BBC Radio $station"
   fi
   music_control clear
-  music_control "load \"BBCRADIO/$playlist.m3u\""
+  music_control "load \"radio/$playlist.m3u\""
   music_control play
 }
 
@@ -33,7 +33,7 @@ function radio() {
 function random() {
   music_control "random 1"
   music_control clear
-  music_control "add NAS/music"
+  music_control "add music"
   music_control play
   playing
 }
