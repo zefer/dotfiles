@@ -25,6 +25,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'fatih/vim-go'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'groenewege/vim-less'
 Bundle 'christoomey/vim-tmux-navigator'
 "" clojure
 "Bundle 'tpope/vim-classpath'
@@ -73,7 +74,6 @@ set secure                      " disable unsafe commands in local .vimrc files
 
 if has("autocmd")
   autocmd BufRead,BufNewFile *.go set filetype=go noexpandtab
-  autocmd BufRead,BufNewFile *.less set filetype=css
 endif
 
 " write with sudo, for read-only files
