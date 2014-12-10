@@ -9,6 +9,6 @@ export PATH=/usr/local/share/npm/bin:$PATH
 
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-cdpath=($PROJECTS $GOPATH/src/github.com/zefer)
+cdpath=($PROJECTS $GOPATH/src/github.com/zefer $GOPATH/src/github.com/airbrake)
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
