@@ -11,7 +11,7 @@ setw -g utf8 on
 set -sg escape-time 0
 
 # large scrollback
-set-option -g history-limit 6000
+set-option -g history-limit 10000
 
 # enable mouse controls
 set -g mode-mouse on
