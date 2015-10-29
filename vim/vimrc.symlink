@@ -75,8 +75,11 @@ set secure                      " disable unsafe commands in local .vimrc files
 set colorcolumn=80
 hi ColorColumn ctermbg=234 guibg=#3E3D32
 
+set spelllang=en_gb
+
 if has("autocmd")
-  autocmd BufRead,BufNewFile *.go set filetype=go noexpandtab
+  autocmd BufRead,BufNewFile *.go setlocal filetype=go noexpandtab
+  autocmd FileType text,markdown setlocal spell
 endif
 
 " write with sudo, for read-only files
