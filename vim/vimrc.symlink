@@ -79,7 +79,7 @@ set spelllang=en_gb
 
 if has("autocmd")
   autocmd BufRead,BufNewFile *.go setlocal filetype=go noexpandtab
-  autocmd FileType text,markdown setlocal spell
+  autocmd FileType text,markdown,gitcommit setlocal spell
 endif
 
 " write with sudo, for read-only files
