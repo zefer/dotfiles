@@ -3,6 +3,7 @@ MUSIC_HOST='music'
 alias playing=music_status
 alias play='music_control play; playing'
 alias pause='music_control pause'
+alias p=pause
 alias skip='music_control next; playing'
 alias music="open http://$MUSIC_HOST"
 
