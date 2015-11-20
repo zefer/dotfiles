@@ -1,4 +1,6 @@
 MUSIC_HOST='music'
+# Set this env var for the MPC client.
+export MPD_HOST=$MUSIC_HOST
 
 alias playing=music_status
 alias play='music_control play; playing'
