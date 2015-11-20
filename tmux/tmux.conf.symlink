@@ -13,12 +13,6 @@ set -sg escape-time 0
 # large scrollback
 set-option -g history-limit 10000
 
-# enable mouse controls
-set -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-select-window on
-set -g mouse-utf8 on
-
 # change control key
 unbind-key C-b
 set -g prefix C-a
