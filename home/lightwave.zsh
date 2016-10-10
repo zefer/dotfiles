@@ -5,6 +5,7 @@ typeset -A ROOMS
 ROOMS[downstairs]=1
 ROOMS[upstairs]=2
 ROOMS[outside]=3
+ROOMS[kitchen]=4
 
 # Listen to and dump the JSON data being broadcast by Lightwave, including the
 # current home electricity usage.
