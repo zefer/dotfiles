@@ -49,6 +49,12 @@ off() {
   done
 }
 
+rooms() {
+  for k in "${(@k)ROOMS}"; do
+    echo "$k: $ROOMS[$k]"
+  done
+}
+
 # Usage:
 # on: turns on everything in room 1.
 # on 2: turns on everything in room 2.
