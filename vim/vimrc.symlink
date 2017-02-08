@@ -84,8 +84,6 @@ cmap w!! %!sudo tee > /dev/null %
 
 " use comma as <Leader> key instead of backslash
 let mapleader=","
-" convert to ruby 1.9 hash syntax
-map <Leader>ha :s/:\([^ ]*\)\(\s*\)=&gt;/\1:/g
 map <Leader>a :Ack 
 map <Leader>' :s/"/'/g<cr>
 map <Leader>" :s/'/"/g<cr>
@@ -129,15 +127,6 @@ nnoremap <Space> za
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
-endif
-
-" text aligning
-if exists(":Tabularize")
-  let mapleader=","
-  nnoremap <Leader>a= :Tabularize /=<CR>
-  vnoremap <Leader>a= :Tabularize /=<CR>
-  nnoremap <Leader>a: :Tabularize /:\zs<CR>
-  vnoremap <Leader>a: :Tabularize /:\zs<CR>
 endif
 
 if has("statusline") && !&cp
