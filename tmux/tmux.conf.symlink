@@ -5,7 +5,6 @@ set  -g default-command "/bin/zsh -c 'which reattach-to-user-namespace >/dev/nul
 set  -g default-terminal "screen-256color"
 setw -g xterm-keys on
 setw -g mode-keys vi
-setw -g utf8 on
 
 # no delay after pressing escape, so vim isn't painful
 set -sg escape-time 0
@@ -68,7 +67,6 @@ unbind ^A
 bind ^A select-pane -t :.+
 
 # status bar
-set  -g status-utf8 on
 setw -g monitor-activity on
 set  -g visual-activity on
 set  -g status-justify centre
