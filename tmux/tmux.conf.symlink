@@ -29,11 +29,12 @@ bind r source-file ~/.tmux.conf \; set -q status-left-bg black\; display "Reload
 
 # copy & paste within tmux
 # http://robots.thoughtbot.com/post/55885045171/tmux-copy-paste-on-os-x-a-better-future
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+# https://github.com/tmux/tmux/issues/592#issuecomment-255763680
+bind-key -Tcopy-mode-vi 'v' send -X begin-selection
+bind-key -Tcopy-mode-vi 'y' send -X copy-pipe "reattach-to-user-namespace pbcopy"
 # Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+unbind -Tcopy-mode-vi Enter
+bind-key -Tcopy-mode-vi Enter send -X copy-pipe "reattach-to-user-namespace pbcopy"
 
 # move around panes with hjkl
 # bind h select-pane -L
