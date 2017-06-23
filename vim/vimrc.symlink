@@ -93,6 +93,7 @@ map <Leader>8 :call ToggleColorColumn()<cr>
 map <leader>gf :!gofmt -w %<cr>
 map <leader>gr :!go run %<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
+map <Leader>5 :call StripTrailingWhitespace()<cr>
 
 " an alternative mapping for escape key
 inoremap jj <ESC>
@@ -155,7 +156,6 @@ function! <SID>StripTrailingWhitespace()
     let @/=_s
     call cursor(l, c)
 endfunction
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespace()<CR>
 
 " Convert Markdown to HTML and open to preview
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
