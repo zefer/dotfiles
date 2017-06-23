@@ -89,7 +89,7 @@ map <Leader>" :s/'/"/g<cr>
 map <Leader>so :so $MYVIMRC<cr>
 map <Leader>g ::GitGutterToggle<cr>
 map <Leader>l :set invnumber<cr>
-map <Leader>8 :call ToggleColorColumn()<CR>
+map <Leader>8 :call ToggleColorColumn()<cr>
 map <leader>gf :!gofmt -w %<cr>
 map <leader>gr :!go run %<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
