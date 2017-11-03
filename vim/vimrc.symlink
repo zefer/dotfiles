@@ -20,6 +20,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'mileszs/ack.vim'
+Plugin 'w0rp/ale'
 Plugin 'tpope/vim-endwise'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nono/vim-handlebars'
@@ -146,6 +147,12 @@ nmap ; :Buffers<cr>
 nmap <Leader>f :Files<cr>
 nmap <Leader>t :Tags<cr>
 nmap <Leader>s :Ag<cr>
+
+" ALE
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
 
 function! <SID>StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
