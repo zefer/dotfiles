@@ -83,7 +83,7 @@ cmap w!! %!sudo tee > /dev/null %
 
 " use comma as <Leader> key instead of backslash
 let mapleader=","
-map <Leader>a :Ack<space>
+map <Leader>a :Ack!<space>
 map <Leader>' :s/"/'/g<cr>
 map <Leader>" :s/'/"/g<cr>
 map <Leader>so :so $MYVIMRC<cr>
