@@ -7,7 +7,7 @@ call vundle#begin()
 " Vundle bundles!
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'wincent/Command-T'
+Plugin 'junegunn/fzf.vim'
 Plugin 'tomasr/molokai'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'tpope/vim-fugitive'
@@ -138,12 +138,13 @@ endif
 let g:miniBufExplStatusLineText = '%='
 let g:go_fmt_command = "goimports"
 
-" CommandT
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
-let g:CommandTMaxHeight=20
-let g:CommandTMinHeight=4
-let g:CommandTHighlightColor='StatusLine'
+" FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
+nmap ; :Buffers<cr>
+nmap <Leader>f :Files<cr>
+nmap <Leader>t :Tags<cr>
+nmap <Leader>s :Ag<cr>
 
 function! <SID>StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
