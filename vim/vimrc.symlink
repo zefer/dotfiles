@@ -143,7 +143,7 @@ let g:go_fmt_command = "goimports"
 " FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
-nmap ; :Buffers<cr>
+nmap <Leader>b :Buffers<cr>
 nmap <Leader>f :Files<cr>
 nmap <Leader>t :Tags<cr>
 nmap <Leader>s :Ag<cr>
