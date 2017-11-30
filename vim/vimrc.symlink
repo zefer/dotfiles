@@ -147,6 +147,10 @@ nmap <Leader>b :Buffers<cr>
 nmap <Leader>f :Files<cr>
 nmap <Leader>t :Tags<cr>
 nmap <Leader>s :Ag<cr>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " ALE
 let g:ale_sign_warning = '▲'
