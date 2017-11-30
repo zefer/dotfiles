@@ -1,5 +1,0 @@
-#!/bin/sh
-
-user=${1:-"zefer"}
-(cd /Users/joe/Dropbox/development/unfollowed && ruby ./unfollowed.rb $user)
-
