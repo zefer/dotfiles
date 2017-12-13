@@ -29,6 +29,7 @@ Plugin 'fatih/vim-go'
 Plugin 'digitaltoad/vim-pug'
 Plugin 'groenewege/vim-less'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
