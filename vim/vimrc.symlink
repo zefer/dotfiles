@@ -159,7 +159,7 @@ let g:ale_sign_error = '✗'
 highlight link ALEWarningSign String
 highlight link ALEErrorSign Title
 
-function! <SID>StripTrailingWhitespace()
+function! StripTrailingWhitespace()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
