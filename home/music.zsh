@@ -8,6 +8,9 @@ alias pause='music_control pause'
 alias p=pause
 alias skip='music_control next; playing'
 alias music="open http://$MUSIC_HOST"
+alias mpcc=ncmpcpp
+alias randomoff='music_control "random 0"'
+alias randomon='music_control "random 1"'
 
 # usage: 'music_control play', music_control pause'
 function music_control() {
