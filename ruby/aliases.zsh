@@ -1,5 +1,3 @@
-alias migrate='rake db:migrate db:test:clone'
-
 alias be='bundle exec'
 
 alias irb=pry
