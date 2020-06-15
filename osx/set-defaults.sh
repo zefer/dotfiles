@@ -31,6 +31,9 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Menu bar: disable transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
+# Disable the swipe animation when switching to/from a full-screen app.
+defaults write com.apple.universalaccess reduceMotion -bool true
+
 # FINDER
 
 # Finder: show all filename extensions
