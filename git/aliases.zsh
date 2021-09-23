@@ -14,7 +14,7 @@ alias gs='git status -sb'
 alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gchurn='git log --name-only | grep .rb | sort | uniq -c | sort -nr | head'
 
-alias gbd='git branch --merged | grep -Ev "(master|production|main|develop)" | xargs git branch -d'
+alias gbd='git branch --merged | grep -Ev "(master|production|main|develop|staging)" | xargs git branch -d'
 
 # typos
 alias gas=gs
