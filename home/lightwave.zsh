@@ -2,10 +2,8 @@ LIGHTWAVE_HOST='lightwaverf'
 
 # Map room IDs to friendly names.
 typeset -A ROOMS
-ROOMS[downstairs]=1
-ROOMS[upstairs]=2
-ROOMS[outside]=3
-ROOMS[kitchen]=4
+ROOMS[livingroom]=1
+ROOMS[office]=2
 
 # Listen to and dump the JSON data being broadcast by Lightwave, including the
 # current home electricity usage.
