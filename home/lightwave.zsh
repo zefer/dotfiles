@@ -4,6 +4,7 @@ LIGHTWAVE_HOST='lightwaverf'
 typeset -A ROOMS
 ROOMS[livingroom]=1
 ROOMS[office]=2
+ROOMS[bedroom]=3
 
 # Listen to and dump the JSON data being broadcast by Lightwave, including the
 # current home electricity usage.
