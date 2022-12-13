@@ -68,7 +68,7 @@ on() {
 
   if [[ $devices == "all" ]]
   then
-    devices=(1 2 3)
+    devices=(1 2 3 4)
   fi
 
   for device_id in "${devices[@]}"
