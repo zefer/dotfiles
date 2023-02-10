@@ -98,7 +98,7 @@ map <Leader>so :so $MYVIMRC<cr>
 map <Leader>g ::GitGutterToggle<cr>
 map <Leader>l :set invnumber<cr>
 map <Leader>8 :call ToggleColorColumn()<cr>
-map <leader>gf :!gofmt -w %<cr>
+map <leader>gf :!gofmt -w "%"<cr>
 map <leader>tf :!npm run lint -- --fix --files %<cr>
 map <leader>gr :!go run %<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
