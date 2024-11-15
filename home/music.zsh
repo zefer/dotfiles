@@ -25,8 +25,10 @@ function music_status() {
 function radio() {
   music_control "random 0"
   station=${1:-6}
-  if [ $station -eq 6 ]; then
+  if [ $station = "6" ]; then
     playlist="BBC $station Music"
+  elif [ $station = "p" ] || [ $station = "paradise" ]; then
+    playlist="Radio Paradise (main)"
   else
     playlist="BBC Radio $station"
   fi
