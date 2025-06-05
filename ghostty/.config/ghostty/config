@@ -1,0 +1,5 @@
+cursor-style-blink = false
+font-size = 13
+font-family = JetBrains Mono
+font-feature = -calt
+theme = tokyonight

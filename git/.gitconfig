@@ -1,0 +1,14 @@
+[user]
+	email = joe@zefer.co.uk
+	name = Joe Roberts
+[core]
+	excludesfile = ~/.gitignore
+[github]
+  user = zefer
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only

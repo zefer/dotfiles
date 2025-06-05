@@ -1,0 +1,11 @@
+.DS_Store
+.svn
+.tissues
+*~
+*.swp
+*.rbc
+.env
+.ruby-version
+.ruby-gemset
+.vimrc
+.venv
