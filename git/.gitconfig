@@ -1,14 +1,24 @@
 [user]
-	email = joe@zefer.co.uk
-	name = Joe Roberts
+  email = joe@zefer.co.uk
+  name = Joe Roberts
 [core]
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 [github]
   user = zefer
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [pull]
-	ff = only
+  ff = only
+[alias]
+  s = status
+  c = commit
+  b = branch
+  p = push
+  d = diff
+  a = add
+  l = log --graph --pretty=format:'%C(yellow)%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  sw = switch
+  co = checkout
