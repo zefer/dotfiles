@@ -13,8 +13,9 @@
 [pull]
   ff = only
 [alias]
-  s = status
+  s = status -sb
   c = commit
+  ca = commit -a
   b = branch
   p = push
   d = diff
