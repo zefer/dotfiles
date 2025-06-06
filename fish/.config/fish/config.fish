@@ -1,5 +1,6 @@
 # Environment variables
 set -gx EDITOR nvim
+set -gx CDPATH . ~/ ~/Development ~/Development/go/src/github.com/zefer
 
 set -U fish_greeting
 
