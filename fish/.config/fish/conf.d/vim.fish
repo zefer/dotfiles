@@ -1,3 +1,3 @@
-alias vimdiff "vim -d"
-alias view "vim -R"
-alias vim "nvim"
+abbr vimdiff "nvim -d"
+abbr view "nvim -R"
+abbr vim "nvim"
