@@ -9,6 +9,10 @@ vim.cmd('source ~/.vimrc')
 
 vim.o.spelllang = "en_gb"
 
+-- Cursor line.
+vim.o.cursorline = true
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#252525' })
+
 vim.o.list = true
 vim.opt.listchars = {
   tab = '» ', trail = '·', nbsp = '␣', extends = '>', precedes = '<'

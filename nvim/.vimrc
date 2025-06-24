@@ -34,7 +34,6 @@ filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
 set showcmd                     " display incomplete commands
-set nocursorline                " disable cursor line as it is very CPU-heavy, unfortunately
 set number                      " show line numbers
 
 set background=dark
