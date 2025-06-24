@@ -27,6 +27,10 @@ vim.opt.foldmethod = 'indent'
 vim.opt.foldlevelstart = 20
 vim.keymap.set('n', '<Space>', 'za')
 
+-- Status line.
+vim.opt.laststatus = 2
+vim.opt.statusline = "[%n] %f [%{&ft}] %m %r%=%-0(%l,%v [%P]%)"
+
 -- KEY MAPPINGS
 -- ------------
 

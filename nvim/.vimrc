@@ -87,12 +87,6 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-  set statusline=[%n]\ %f\ [%{&ft}]\ %m\ %r   " left
-  set statusline+=%=%-0(%l,%v\ [%P]%)         " right
-endif
-
 let g:miniBufExplStatusLineText = '%='
 let g:go_fmt_command = "goimports"
 
