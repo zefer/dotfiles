@@ -1,4 +1,3 @@
-set nocompatible                " choose no compatibility with legacy vi
 filetype off                    " required by Vundle, override later
 
 set rtp+=~/.vim/bundle/Vundle.vim
