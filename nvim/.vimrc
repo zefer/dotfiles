@@ -91,24 +91,10 @@ nmap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
 " write with sudo, for read-only files
 cmap w!! %!sudo tee > /dev/null %
 
-" use comma as <Leader> key instead of backslash
-let mapleader=","
-map <Leader>a :Ack!<space>
-map <Leader>' :s/"/'/g<cr>
-map <Leader>" :s/'/"/g<cr>
-map <Leader>so :so $MYVIMRC<cr>
 map <Leader>g ::GitGutterToggle<cr>
-map <Leader>l :set invnumber<cr>
 map <Leader>8 :call ToggleColorColumn()<cr>
-map <leader>gf :!gofmt -w "%"<cr>
-map <leader>tf :!npm run lint -- --fix --files %<cr>
-map <leader>gr :!go run %<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
 map <Leader>5 :call StripTrailingWhitespace()<cr>
-map <Leader>tf :%!fmt "%"<cr>
-
-" an alternative mapping for escape key
-inoremap jj <ESC>
 
 " move within 'displayed lines rather than 'physical' lines (for wordwrap)
 noremap k gk
@@ -119,18 +105,9 @@ if !exists(':W')
   command W w
 endif
 
-" clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
-
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
 
 " code folding
 set foldmethod=indent
