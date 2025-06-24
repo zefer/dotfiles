@@ -47,14 +47,6 @@ set scrolloff=3                 " show context above/below cursorline
 set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
-" List chars
-set list
-set listchars=""                " Reset the listchars
-set listchars=tab:\ \           " a tab should display as "  ", trailing whitespace as "."
-set listchars+=trail:.          " show trailing spaces as dots
-set listchars+=extends:>        " The character to show in the last column when wrap is
-                                " off and the line continues beyond the right of the screen
-set listchars+=precedes:<       " The character to show in the first column when wrap is
 
 "" Searching
 set hlsearch                    " highlight matches
@@ -69,8 +61,6 @@ set secure                      " disable unsafe commands in local .vimrc files
 
 set colorcolumn=80
 hi ColorColumn ctermbg=234 guibg=#3E3D32
-
-set spelllang=en_gb
 
 if has("autocmd")
   autocmd BufRead,BufNewFile *.go setlocal filetype=go noexpandtab

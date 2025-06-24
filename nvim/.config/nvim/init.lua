@@ -7,6 +7,13 @@ vim.cmd('source ~/.vimrc')
 -- SETTINGS
 -- --------
 
+vim.o.spelllang = "en_gb"
+
+vim.o.list = true
+vim.opt.listchars = {
+  tab = '» ', trail = '·', nbsp = '␣', extends = '>', precedes = '<'
+}
+
 -- KEY MAPPINGS
 -- ------------
 
