@@ -14,6 +14,14 @@ vim.opt.listchars = {
   tab = '» ', trail = '·', nbsp = '␣', extends = '>', precedes = '<'
 }
 
+-- Whitespace.
+vim.opt.wrap = false     -- don't wrap lines
+vim.opt.scrolloff = 3    -- show context above/below cursorline
+vim.opt.tabstop = 2      -- a tab is two spaces
+vim.opt.shiftwidth = 2   -- a tab is two spaces
+vim.opt.expandtab = true -- use spaces, not tabs
+vim.opt.backspace = {'indent', 'eol', 'start'}  -- backspace through everything in insert mode
+
 -- KEY MAPPINGS
 -- ------------
 

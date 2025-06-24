@@ -41,13 +41,6 @@ set number                      " show line numbers
 set background=dark
 colorscheme molokai
 
-"" Whitespace
-set nowrap                      " don't wrap lines
-set scrolloff=3                 " show context above/below cursorline
-set tabstop=2 shiftwidth=2      " a tab is two spaces (or set this to 4)
-set expandtab                   " use spaces, not tabs (optional)
-set backspace=indent,eol,start  " backspace through everything in insert mode
-
 "" Searching
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching
