@@ -34,7 +34,6 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-set t_Co=256
 syntax enable
 set encoding=utf-8
 set showcmd                     " display incomplete commands
@@ -68,7 +67,6 @@ set smartcase                   " ... unless they contain at least one capital l
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
-set exrc                        " enable per-directory .vimrc files
 set secure                      " disable unsafe commands in local .vimrc files
 
 set colorcolumn=80
