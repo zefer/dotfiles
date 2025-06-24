@@ -34,8 +34,6 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-syntax enable
-set encoding=utf-8
 set showcmd                     " display incomplete commands
 set nocursorline                " disable cursor line as it is very CPU-heavy, unfortunately
 set number                      " show line numbers
