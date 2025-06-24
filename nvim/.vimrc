@@ -62,10 +62,6 @@ if has("autocmd")
   autocmd FileType text,markdown,gitcommit setlocal spell
 endif
 
-" fix gx to open the URL under the cursor, like it used to.
-" https://github.com/vim/vim/issues/4738
-nmap gx yiW:!open <cWORD><CR> <C-r>" & <CR><CR>
-
 " write with sudo, for read-only files
 cmap w!! %!sudo tee > /dev/null %
 
