@@ -83,11 +83,6 @@ endif
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" code folding
-set foldmethod=indent
-set foldlevelstart=20
-nnoremap <Space> za
-
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif

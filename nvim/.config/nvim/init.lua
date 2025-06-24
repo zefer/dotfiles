@@ -22,6 +22,11 @@ vim.opt.shiftwidth = 2   -- a tab is two spaces
 vim.opt.expandtab = true -- use spaces, not tabs
 vim.opt.backspace = {'indent', 'eol', 'start'}  -- backspace through everything in insert mode
 
+-- Code folding.
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevelstart = 20
+vim.keymap.set('n', '<Space>', 'za')
+
 -- KEY MAPPINGS
 -- ------------
 
