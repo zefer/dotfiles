@@ -51,9 +51,6 @@ set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
 set secure                      " disable unsafe commands in local .vimrc files
 
-set colorcolumn=80
-hi ColorColumn ctermbg=234 guibg=#3E3D32
-
 if has("autocmd")
   autocmd BufRead,BufNewFile *.go setlocal filetype=go noexpandtab
   autocmd BufRead,BufNewFile *.svelte setlocal filetype=html
@@ -66,7 +63,6 @@ endif
 cmap w!! %!sudo tee > /dev/null %
 
 map <Leader>g ::GitGutterToggle<cr>
-map <Leader>8 :call ToggleColorColumn()<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
 map <Leader>5 :call StripTrailingWhitespace()<cr>
 
@@ -143,27 +139,5 @@ function! DeclutterModeToggle()
     windo set nonumber
     windo :GitGutterDisable
     let g:DeclutterMode = 1
-  endif
-endfunction
-
-" Toggle word wrap
-noremap <silent> <Leader>w :call ToggleWrap()<CR>
-function! ToggleWrap()
-  if &wrap
-    echo "Wrap OFF"
-    setlocal nowrap
-  else
-    echo "Wrap ON"
-    setlocal wrap linebreak nolist
-    setlocal display+=lastline
-  endif
-endfunction
-
-" Toggle colorcolumn
-function! ToggleColorColumn()
-  if &colorcolumn==80
-    setlocal colorcolumn=0
-  else
-    setlocal colorcolumn=80
   endif
 endfunction
