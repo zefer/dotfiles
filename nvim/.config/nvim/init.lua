@@ -31,6 +31,12 @@ vim.opt.shiftwidth = 2   -- a tab is two spaces
 vim.opt.expandtab = true -- use spaces, not tabs
 vim.opt.backspace = {'indent', 'eol', 'start'}  -- backspace through everything in insert mode
 
+-- Searching.
+vim.opt.hlsearch = true   -- highlight matches
+vim.opt.incsearch = true  -- hightlight as we type
+vim.opt.ignorecase = true -- searches are case insensitive...
+vim.opt.smartcase = true  -- ... unless they contain at least one capital letter
+
 -- Code folding.
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevelstart = 20

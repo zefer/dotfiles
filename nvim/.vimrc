@@ -33,12 +33,6 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-"" Searching
-set hlsearch                    " highlight matches
-set incsearch                   " incremental searching
-set ignorecase                  " searches are case insensitive...
-set smartcase                   " ... unless they contain at least one capital letter
-
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
