@@ -44,6 +44,9 @@ vim.opt.statusline = "[%n] %f [%{&ft}] %m %r%=%-0(%l,%v [%P]%)"
 vim.opt.colorcolumn = "80"  -- Show column at position 80
 vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 234, bg = '#3E3D32' })  -- Style the column
 
+vim.opt.exrc = true   -- enable per-directory .[n]vimrc files
+vim.opt.secure = true -- disable unsafe commands in local .[n]vimrc files
+
 -- FUNCTIONS
 -- ---------
 -- TODO: consider moving to a separate file/modules.

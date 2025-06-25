@@ -42,8 +42,6 @@ set smartcase                   " ... unless they contain at least one capital l
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
-set secure                      " disable unsafe commands in local .vimrc files
-
 if has("autocmd")
   autocmd BufRead,BufNewFile *.go setlocal filetype=go noexpandtab
   autocmd BufRead,BufNewFile *.svelte setlocal filetype=html
