@@ -33,12 +33,6 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-set showcmd                     " display incomplete commands
-set number                      " show line numbers
-
-set background=dark
-colorscheme molokai
-
 "" Searching
 set hlsearch                    " highlight matches
 set incsearch                   " incremental searching

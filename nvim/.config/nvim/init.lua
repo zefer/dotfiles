@@ -8,6 +8,11 @@ vim.cmd('source ~/.vimrc')
 -- --------
 
 vim.o.spelllang = "en_gb"
+vim.opt.showcmd = true -- display incomplete commands
+vim.opt.number = true -- show line numbers
+
+vim.opt.background = 'dark'
+vim.cmd.colorscheme('molokai')
 
 -- Cursor line.
 vim.o.cursorline = true
