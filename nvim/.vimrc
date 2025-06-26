@@ -38,7 +38,6 @@ set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
 map <Leader>g ::GitGutterToggle<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
-map <Leader>5 :call StripTrailingWhitespace()<cr>
 
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
@@ -73,18 +72,6 @@ highlight link ALEErrorSign Title
 " ALE linting error/warning navigation.
 nmap [o <Plug>(ale_previous_wrap)
 nmap ]o <Plug>(ale_next_wrap)
-
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
 
 " Convert Markdown to HTML and open to preview
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a

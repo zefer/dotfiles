@@ -80,12 +80,19 @@ local function toggle_colorcolumn()
   end
 end
 
+local function strip_trailing_whitespace()
+  local save_cursor = vim.api.nvim_win_get_cursor(0)
+  vim.api.nvim_command('keepjumps keeppatterns %s/\\s\\+$//e')
+  vim.api.nvim_win_set_cursor(0, save_cursor)
+end
+
 -- KEY MAPPINGS
 -- ------------
 
 -- Local functions.
 vim.keymap.set('n', '<Leader>w', toggle_wrap, { silent = true, desc = 'Toggle word wrap' })
 vim.keymap.set('n', '<Leader>8', toggle_colorcolumn, { silent = true, desc = 'Toggle colorcolumn' })
+vim.keymap.set('n', '<Leader>5', strip_trailing_whitespace, { silent = true, desc = 'Strip trailing whitespace' })
 
 vim.keymap.set('i', 'jj', '<ESC>')
 
