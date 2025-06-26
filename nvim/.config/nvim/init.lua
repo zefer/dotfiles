@@ -112,6 +112,9 @@ vim.keymap.set('n', '<Leader>so', function()
   print('Config reloaded!')
 end, { desc = 'Reload config' })
 
+-- Write with sudo, for read-only files.
+vim.keymap.set('c', 'w!!', '%!sudo tee > /dev/null %')
+
 -- PLUGINS
 -- -------
 

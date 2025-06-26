@@ -36,9 +36,6 @@ filetype plugin indent on       " load file type plugins + indentation
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
-" write with sudo, for read-only files
-cmap w!! %!sudo tee > /dev/null %
-
 map <Leader>g ::GitGutterToggle<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
 map <Leader>5 :call StripTrailingWhitespace()<cr>
