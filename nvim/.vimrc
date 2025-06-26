@@ -33,10 +33,6 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-" double percentage sign in command mode is expanded
-" to directory of current file - http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
