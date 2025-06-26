@@ -36,9 +36,6 @@ filetype plugin indent on       " load file type plugins + indentation
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
-map <Leader>g ::GitGutterToggle<cr>
-map <Leader>d :call DeclutterModeToggle()<cr>
-
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -75,21 +72,3 @@ nmap ]o <Plug>(ale_next_wrap)
 
 " Convert Markdown to HTML and open to preview
 map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
-
-" Toggle 'focus mode' - hides UI junk for a more fullscreen-like view
-let g:DeclutterMode = 0
-function! DeclutterModeToggle()
-  if g:DeclutterMode==1
-    echo "CLUTTER MODE"
-    windo set number
-    windo :GitGutterEnable
-    :MBEOpen
-    let g:DeclutterMode = 0
-  else
-    echo "DECLUTTER MODE"
-    :MBEClose
-    windo set nonumber
-    windo :GitGutterDisable
-    let g:DeclutterMode = 1
-  endif
-endfunction
