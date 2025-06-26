@@ -6,7 +6,6 @@ call vundle#begin()
 " Vundle bundles!
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'fholgado/minibufexpl.vim'
-Plugin 'mileszs/ack.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vim-scripts/VimCompletesMe'
 Plugin 'ngmy/vim-rubocop'
@@ -14,24 +13,8 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
 let g:miniBufExplStatusLineText = '%='
 let g:go_fmt_command = "goimports"
-
-" FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
-set rtp+=/usr/local/opt/fzf
-set rtp+=~/.fzf
-nmap <Leader>b :Buffers<cr>
-nmap <Leader>f :Files<cr>
-nmap <Leader>t :Tags<cr>
-nmap <Leader>s :Ag<cr>
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
 
 " ALE
 let g:ale_sign_warning = '▲'

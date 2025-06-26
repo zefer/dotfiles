@@ -36,6 +36,9 @@ vim.opt.incsearch = true  -- hightlight as we type
 vim.opt.ignorecase = true -- searches are case insensitive...
 vim.opt.smartcase = true  -- ... unless they contain at least one capital letter
 
+-- Use ripgrep for :grep command
+vim.opt.grepprg = 'rg --vimgrep --smart-case --follow'
+
 -- Code folding.
 vim.opt.foldmethod = 'indent'
 vim.opt.foldlevelstart = 20
@@ -101,11 +104,15 @@ vim.keymap.set('n', '<Leader>5', strip_trailing_whitespace, { silent = true, des
 
 vim.keymap.set('i', 'jj', '<ESC>')
 
--- FZF mappings
+-- FZF and search mappings
 vim.keymap.set('n', '<Leader>f', ':Files<CR>', { desc = 'Find files' })
 vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', { desc = 'Find buffers' })
+vim.keymap.set('n', '<Leader>a', ':Rg ', { desc = 'Search with ripgrep' })
+-- TODO: change mapping and check :cw behaviour.
+vim.keymap.set('n', '<Leader>qa', ':grep ', { desc = 'Search to quickfix' })
+vim.keymap.set('n', '<Leader>s', ':Rg<CR>', { desc = 'Search current word' })
+vim.keymap.set('n', '<Leader>t', ':Tags<CR>', { desc = 'Find tags' })
 
-vim.keymap.set('n', '<Leader>a', ':Ack!<space>')
 vim.keymap.set('n', '<Leader>\'', ':s/"/\'/g<CR>')
 vim.keymap.set('n', '<Leader>"', ':s/\'/"/g<CR>')
 vim.keymap.set('n', '<Leader>l', ':set invnumber<CR>')
@@ -187,16 +194,6 @@ require("lazy").setup({
     end
   },
 
-  -- Search
-  {
-    'mileszs/ack.vim',
-    config = function()
-      -- Use ag if available (from your vimrc)
-      if vim.fn.executable('ag') == 1 then
-        vim.g.ackprg = 'ag --vimgrep'
-      end
-    end
-  },
 }, {
   checker = { enabled = false }, -- Don't auto-check for updates
 })
