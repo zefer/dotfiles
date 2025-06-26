@@ -69,6 +69,3 @@ highlight link ALEErrorSign Title
 " ALE linting error/warning navigation.
 nmap [o <Plug>(ale_previous_wrap)
 nmap ]o <Plug>(ale_next_wrap)
-
-" Convert Markdown to HTML and open to preview
-map <F8> <ESC>:w!<CR>:!markdown % \| smartypants > %.html && open %.html<CR><CR>a
