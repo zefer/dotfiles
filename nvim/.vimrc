@@ -36,14 +36,6 @@ filetype plugin indent on       " load file type plugins + indentation
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
 set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
-if has("autocmd")
-  autocmd BufRead,BufNewFile *.go setlocal filetype=go noexpandtab
-  autocmd BufRead,BufNewFile *.svelte setlocal filetype=html
-  " autocmd BufRead,BufNewFile *.hbs setlocal filetype=html
-  autocmd BufRead,BufNewFile *.handlebars,*.hbs set ft=html syntax=html
-  autocmd FileType text,markdown,gitcommit setlocal spell
-endif
-
 " write with sudo, for read-only files
 cmap w!! %!sudo tee > /dev/null %
 

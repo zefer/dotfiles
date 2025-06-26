@@ -117,3 +117,23 @@ end, { desc = 'Reload config' })
 
 -- AUTOCOMMANDS
 -- ------------
+
+local augroup = vim.api.nvim_create_augroup('UserConfig', { clear = true })
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  pattern = '*.go',
+  group = augroup,
+  command = 'setlocal noexpandtab'
+})
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+  pattern = '*.svelte',
+  group = augroup,
+  command = 'setlocal filetype=html'
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {'text', 'markdown', 'gitcommit'},
+  group = augroup,
+  command = 'setlocal spell'
+})
