@@ -40,10 +40,6 @@ map <Leader>g ::GitGutterToggle<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
 map <Leader>5 :call StripTrailingWhitespace()<cr>
 
-" move within 'displayed lines rather than 'physical' lines (for wordwrap)
-noremap k gk
-noremap j gj
-
 " make :W do the same as :w
 if !exists(':W')
   command W w

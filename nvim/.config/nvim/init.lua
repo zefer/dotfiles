@@ -106,6 +106,10 @@ vim.keymap.set('n', '<C-k>', '<C-w>k')
 vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-l>', '<C-w>l')
 
+-- Move to next/previous displayed lines rather than physical lines (for wordwrap).
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+
 -- Reload config.
 vim.keymap.set('n', '<Leader>so', function()
   vim.cmd('source $MYVIMRC')
