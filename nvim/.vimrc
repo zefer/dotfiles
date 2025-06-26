@@ -40,11 +40,6 @@ map <Leader>g ::GitGutterToggle<cr>
 map <Leader>d :call DeclutterModeToggle()<cr>
 map <Leader>5 :call StripTrailingWhitespace()<cr>
 
-" make :W do the same as :w
-if !exists(':W')
-  command W w
-endif
-
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>

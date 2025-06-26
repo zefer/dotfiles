@@ -119,6 +119,11 @@ end, { desc = 'Reload config' })
 -- Write with sudo, for read-only files.
 vim.keymap.set('c', 'w!!', '%!sudo tee > /dev/null %')
 
+-- Fix my common fat-fingered command typos.
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('Wqa', 'wqa', {})
+
 -- PLUGINS
 -- -------
 
