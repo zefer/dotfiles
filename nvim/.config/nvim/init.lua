@@ -53,6 +53,12 @@ vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 234, bg = '#3E3D32' })  -- Sty
 vim.opt.exrc = true   -- enable per-directory .[n]vimrc files
 vim.opt.secure = true -- disable unsafe commands in local .[n]vimrc files
 
+-- Don't create backup files in these directories.
+vim.opt.backupskip:append({
+  '/tmp/*',
+  '/private/tmp/*'
+})
+
 -- FUNCTIONS
 -- ---------
 -- TODO: consider moving to a separate file/modules.

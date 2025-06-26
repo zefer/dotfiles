@@ -34,7 +34,6 @@ filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
 set wildignore+=log/**,node_modules/**,tmp/**,*.scssc,*.sassc
-set backupskip=/tmp/*,/private/tmp/*   " don't create backup files here
 
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
