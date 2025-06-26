@@ -12,7 +12,6 @@ vim.opt.showcmd = true -- display incomplete commands
 vim.opt.number = true -- show line numbers
 
 vim.opt.background = 'dark'
-vim.cmd.colorscheme('molokai')
 
 -- Cursor line.
 vim.o.cursorline = true
@@ -102,6 +101,10 @@ vim.keymap.set('n', '<Leader>5', strip_trailing_whitespace, { silent = true, des
 
 vim.keymap.set('i', 'jj', '<ESC>')
 
+-- FZF mappings
+vim.keymap.set('n', '<Leader>f', ':Files<CR>', { desc = 'Find files' })
+vim.keymap.set('n', '<Leader>b', ':Buffers<CR>', { desc = 'Find buffers' })
+
 vim.keymap.set('n', '<Leader>a', ':Ack!<space>')
 vim.keymap.set('n', '<Leader>\'', ':s/"/\'/g<CR>')
 vim.keymap.set('n', '<Leader>"', ':s/\'/"/g<CR>')
@@ -139,6 +142,66 @@ vim.api.nvim_create_user_command('Wqa', 'wqa', {})
 
 -- PLUGINS
 -- -------
+
+-- [[ Install `lazy.nvim` plugin manager ]]
+-- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
+end
+
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
+
+-- Setup lazy.nvim
+require("lazy").setup({
+  'tpope/vim-fugitive',         -- Git integration
+  'tpope/vim-unimpaired',       -- Bracket mappings
+  'tpope/vim-commentary',       -- Comment/uncomment
+  'tpope/vim-surround',         -- Surround text objects
+  'tpope/vim-endwise',          -- Auto-end structures
+  'tpope/vim-vinegar',          -- Better netrw
+  'tpope/vim-rhubarb',          -- GitHub integration
+  'tpope/vim-rails',            -- Rails proj helpers
+  'tpope/vim-rake',             -- Ruby proj helpers
+  'christoomey/vim-tmux-navigator', -- Tmux integration
+  'airblade/vim-gitgutter',     -- Git and version control
+  'vim-scripts/VimCompletesMe', -- Completion
+  'tomasr/molokai',             -- Colorscheme
+
+  {
+    'junegunn/fzf.vim',
+    dependencies = { 'junegunn/fzf' },
+    config = function()
+      -- FZF configuration.
+      vim.g.fzf_action = {
+        ['ctrl-t'] = 'tab split',
+        ['ctrl-s'] = 'split',
+        ['ctrl-v'] = 'vsplit'
+      }
+    end
+  },
+
+  -- Search
+  {
+    'mileszs/ack.vim',
+    config = function()
+      -- Use ag if available (from your vimrc)
+      if vim.fn.executable('ag') == 1 then
+        vim.g.ackprg = 'ag --vimgrep'
+      end
+    end
+  },
+}, {
+  checker = { enabled = false }, -- Don't auto-check for updates
+})
+
+vim.cmd.colorscheme('molokai')
 
 -- AUTOCOMMANDS
 -- ------------
