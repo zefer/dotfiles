@@ -2,7 +2,6 @@
 vim.g.mapleader = ','
 vim.g.maplocalleader = ','
 
-vim.cmd('source ~/.vimrc')
 
 -- SETTINGS
 -- --------
@@ -178,8 +177,24 @@ require("lazy").setup({
   'tpope/vim-rake',             -- Ruby proj helpers
   'christoomey/vim-tmux-navigator', -- Tmux integration
   'airblade/vim-gitgutter',     -- Git and version control
-  'vim-scripts/VimCompletesMe', -- Completion
   'tomasr/molokai',             -- Colorscheme
+
+  -- LSP and completion
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      { 'mason-org/mason.nvim', opts = {} },
+      'mason-org/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      -- Useful status updates for LSP.
+      { 'j-hui/fidget.nvim', opts = {} },
+      -- Allows extra capabilities provided by blink.cmp.
+      {
+        'saghen/blink.cmp',
+        version = '1.*',
+      },
+    },
+  },
 
   -- TODO: replace MiniBufExplorer?
   {
@@ -209,6 +224,124 @@ require("lazy").setup({
 
 vim.cmd.colorscheme('molokai')
 
+-- LSP CONFIGURATION
+-- -----------------
+
+-- Setup mason
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = { 'gopls', 'ruby_lsp', 'lua_ls' },
+})
+
+-- LSP keymaps and configuration
+local on_attach = function(client, bufnr)
+  local opts = { buffer = bufnr, silent = true }
+  -- TODO: check these.
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+
+  -- Format on save for Go
+  if client.supports_method('textDocument/formatting') then
+    vim.api.nvim_create_autocmd('BufWritePre', {
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.format({ bufnr = bufnr })
+      end,
+    })
+  end
+end
+
+-- Configure LSP servers
+local lspconfig = require('lspconfig')
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+lspconfig.gopls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    gopls = {
+      gofumpt = true,
+    },
+  },
+})
+
+lspconfig.ruby_lsp.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+lspconfig.lua_ls.setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' },
+      },
+    },
+  },
+})
+
+-- COMPLETION CONFIGURATION
+-- ------------------------
+
+require('blink.cmp').setup({
+  keymap = {
+    preset = 'default',
+    ['<Tab>'] = { 'select_next', 'fallback' },
+    ['<S-Tab>'] = { 'select_prev', 'fallback' },
+    ['<CR>'] = { 'accept', 'fallback' },
+    ['<C-Space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+    ['<C-e>'] = { 'hide', 'fallback' },
+  },
+
+  appearance = {
+    use_nvim_cmp_as_default = true,
+    nerd_font_variant = 'mono'
+  },
+
+  sources = {
+    default = { 'lsp', 'path', 'snippets', 'buffer' },
+    providers = {
+      buffer = {
+        max_items = 4,
+        min_keyword_length = 4,
+      },
+      path = {
+        -- Trigger after 3+ chars.
+        min_keyword_length = 3,
+      },
+    },
+  },
+
+  completion = {
+    accept = {
+      auto_brackets = {
+        enabled = true,
+      },
+    },
+    list = {
+      selection = { preselect = true, auto_insert = true },
+    },
+    menu = {
+      draw = {
+        treesitter = { "lsp" }
+      }
+    },
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 200,
+    },
+  },
+
+  signature = { enabled = true }
+})
+
 -- AUTOCOMMANDS
 -- ------------
 
@@ -217,7 +350,11 @@ local augroup = vim.api.nvim_create_augroup('UserConfig', { clear = true })
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
   pattern = '*.go',
   group = augroup,
-  command = 'setlocal noexpandtab'
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+  end
 })
 
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
