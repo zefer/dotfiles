@@ -181,6 +181,15 @@ require("lazy").setup({
   'vim-scripts/VimCompletesMe', -- Completion
   'tomasr/molokai',             -- Colorscheme
 
+  -- TODO: replace MiniBufExplorer?
+  {
+    'fholgado/minibufexpl.vim',
+    config = function()
+      vim.g.miniBufExplStatusLineText = '%='
+      vim.g.miniBufExplBuffersNeeded = 0
+    end
+  },
+
   {
     'junegunn/fzf.vim',
     dependencies = { 'junegunn/fzf' },

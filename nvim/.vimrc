@@ -5,7 +5,6 @@ call vundle#begin()
 
 " Vundle bundles!
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vim-scripts/VimCompletesMe'
 Plugin 'ngmy/vim-rubocop'
@@ -13,7 +12,6 @@ call vundle#end()
 filetype plugin indent on       " load file type plugins + indentation
 " set autoread                    " reload files when changed on disk
 
-let g:miniBufExplStatusLineText = '%='
 let g:go_fmt_command = "goimports"
 
 " ALE
