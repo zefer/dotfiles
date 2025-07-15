@@ -28,6 +28,8 @@ vim.opt.tabstop = 2      -- a tab is two spaces
 vim.opt.shiftwidth = 2   -- a tab is two spaces
 vim.opt.expandtab = true -- use spaces, not tabs
 vim.opt.backspace = {'indent', 'eol', 'start'}  -- backspace through everything in insert mode
+vim.opt.textwidth = 80 -- wrap at 80 chars, but...
+vim.opt.formatoptions:remove("t") -- don't auto-wrap
 
 -- Searching.
 vim.opt.hlsearch = true   -- highlight matches
