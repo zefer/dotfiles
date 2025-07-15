@@ -8,7 +8,7 @@ vim.g.maplocalleader = ','
 
 vim.o.spelllang = "en_gb"
 vim.opt.showcmd = true -- display incomplete commands
-vim.opt.number = true -- show line numbers
+vim.opt.number = true  -- show line numbers
 
 vim.opt.background = 'dark'
 
@@ -22,14 +22,14 @@ vim.opt.listchars = {
 }
 
 -- Whitespace.
-vim.opt.wrap = false     -- don't wrap lines
-vim.opt.scrolloff = 3    -- show context above/below cursorline
-vim.opt.tabstop = 2      -- a tab is two spaces
-vim.opt.shiftwidth = 2   -- a tab is two spaces
-vim.opt.expandtab = true -- use spaces, not tabs
-vim.opt.backspace = {'indent', 'eol', 'start'}  -- backspace through everything in insert mode
-vim.opt.textwidth = 80 -- wrap at 80 chars, but...
-vim.opt.formatoptions:remove("t") -- don't auto-wrap
+vim.opt.wrap = false                             -- don't wrap lines
+vim.opt.scrolloff = 3                            -- show context above/below cursorline
+vim.opt.tabstop = 2                              -- a tab is two spaces
+vim.opt.shiftwidth = 2                           -- a tab is two spaces
+vim.opt.expandtab = true                         -- use spaces, not tabs
+vim.opt.backspace = { 'indent', 'eol', 'start' } -- backspace through everything in insert mode
+vim.opt.textwidth = 80                           -- wrap at 80 chars, but...
+vim.opt.formatoptions:remove("t")                -- don't auto-wrap
 
 -- Searching.
 vim.opt.hlsearch = true   -- highlight matches
@@ -50,11 +50,11 @@ vim.opt.laststatus = 2
 vim.opt.statusline = "[%n] %f [%{&ft}] %m %r%=%-0(%l,%v [%P]%)"
 
 -- Colour column.
-vim.opt.colorcolumn = "80"  -- Show column at position 80
-vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 234, bg = '#3E3D32' })  -- Style the column
+vim.opt.colorcolumn = "80"                                               -- Show column at position 80
+vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg = 234, bg = '#3E3D32' }) -- Style the column
 
-vim.opt.exrc = true   -- enable per-directory .[n]vimrc files
-vim.opt.secure = true -- disable unsafe commands in local .[n]vimrc files
+vim.opt.exrc = true                                                      -- enable per-directory .[n]vimrc files
+vim.opt.secure = true                                                    -- disable unsafe commands in local .[n]vimrc files
 
 -- Don't create backup files in these directories.
 vim.opt.backupskip:append({
@@ -168,18 +168,18 @@ rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  'tpope/vim-fugitive',         -- Git integration
-  'tpope/vim-unimpaired',       -- Bracket mappings
-  'tpope/vim-commentary',       -- Comment/uncomment
-  'tpope/vim-surround',         -- Surround text objects
-  'tpope/vim-endwise',          -- Auto-end structures
-  'tpope/vim-vinegar',          -- Better netrw
-  'tpope/vim-rhubarb',          -- GitHub integration
-  'tpope/vim-rails',            -- Rails proj helpers
-  'tpope/vim-rake',             -- Ruby proj helpers
+  'tpope/vim-fugitive',             -- Git integration
+  'tpope/vim-unimpaired',           -- Bracket mappings
+  'tpope/vim-commentary',           -- Comment/uncomment
+  'tpope/vim-surround',             -- Surround text objects
+  'tpope/vim-endwise',              -- Auto-end structures
+  'tpope/vim-vinegar',              -- Better netrw
+  'tpope/vim-rhubarb',              -- GitHub integration
+  'tpope/vim-rails',                -- Rails proj helpers
+  'tpope/vim-rake',                 -- Ruby proj helpers
   'christoomey/vim-tmux-navigator', -- Tmux integration
-  'airblade/vim-gitgutter',     -- Git and version control
-  'tomasr/molokai',             -- Colorscheme
+  'airblade/vim-gitgutter',         -- Git and version control
+  'tomasr/molokai',                 -- Colorscheme
 
   -- LSP and completion
   {
@@ -189,7 +189,7 @@ require("lazy").setup({
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',    opts = {} },
       -- Allows extra capabilities provided by blink.cmp.
       {
         'saghen/blink.cmp',
@@ -349,7 +349,7 @@ require('blink.cmp').setup({
 
 local augroup = vim.api.nvim_create_augroup('UserConfig', { clear = true })
 
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = '*.go',
   group = augroup,
   callback = function()
@@ -359,14 +359,14 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
   end
 })
 
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = '*.svelte',
   group = augroup,
   command = 'setlocal filetype=html'
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'text', 'markdown', 'gitcommit'},
+  pattern = { 'text', 'markdown', 'gitcommit' },
   group = augroup,
   command = 'setlocal spell'
 })
