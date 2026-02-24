@@ -1,1 +1,1 @@
-alias claude="~/.claude/local/claude"
+fish_add_path ~/.local/bin
