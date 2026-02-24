@@ -103,6 +103,12 @@ vim.keymap.set('n', '<Leader>w', toggle_wrap, { silent = true, desc = 'Toggle wo
 vim.keymap.set('n', '<Leader>8', toggle_colorcolumn, { silent = true, desc = 'Toggle colorcolumn' })
 vim.keymap.set('n', '<Leader>5', strip_trailing_whitespace, { silent = true, desc = 'Strip trailing whitespace' })
 
+vim.keymap.set('n', '<Leader>cp', function()
+  local path = vim.fn.fnamemodify(vim.fn.expand('%'), ':.')
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
+end, { silent = true, desc = 'Copy relative file path' })
+
 vim.keymap.set('i', 'jj', '<ESC>')
 
 -- FZF and search mappings
