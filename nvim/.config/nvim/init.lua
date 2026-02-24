@@ -328,7 +328,7 @@ require('blink.cmp').setup({
       },
     },
     list = {
-      selection = { preselect = true, auto_insert = true },
+      selection = { preselect = false, auto_insert = true },
     },
     menu = {
       draw = {
