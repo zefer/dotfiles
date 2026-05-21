@@ -9,4 +9,4 @@
 .ruby-gemset
 .vimrc
 .venv
-.claude
+.claude/settings.local.json
