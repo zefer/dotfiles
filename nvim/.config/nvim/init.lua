@@ -192,11 +192,8 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       { 'mason-org/mason.nvim', opts = {} },
-      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-      -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim',    opts = {} },
-      -- Allows extra capabilities provided by blink.cmp.
       {
         'saghen/blink.cmp',
         version = '1.*',
@@ -237,40 +234,40 @@ vim.cmd.colorscheme('molokai')
 
 -- Setup mason
 require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = { 'gopls', 'ruby_lsp', 'lua_ls' },
+require('mason-tool-installer').setup({
+  ensure_installed = { 'gopls', 'ruby-lsp', 'lua-language-server' },
 })
 
--- LSP keymaps and configuration
-local on_attach = function(client, bufnr)
-  local opts = { buffer = bufnr, silent = true }
-  -- TODO: check these.
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+-- LSP keymaps via LspAttach autocmd
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspAttach', { clear = true }),
+  callback = function(ev)
+    local opts = { buffer = ev.buf, silent = true }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
-  -- Format on save for Go
-  if client.supports_method('textDocument/formatting') then
-    vim.api.nvim_create_autocmd('BufWritePre', {
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({ bufnr = bufnr })
-      end,
-    })
-  end
-end
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = ev.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = ev.buf })
+        end,
+      })
+    end
+  end,
+})
 
 -- Configure LSP servers
-local lspconfig = require('lspconfig')
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-lspconfig.gopls.setup({
+vim.lsp.config('gopls', {
   capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     gopls = {
       gofumpt = true,
@@ -278,14 +275,12 @@ lspconfig.gopls.setup({
   },
 })
 
-lspconfig.ruby_lsp.setup({
+vim.lsp.config('ruby_lsp', {
   capabilities = capabilities,
-  on_attach = on_attach,
 })
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('lua_ls', {
   capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {
@@ -294,6 +289,8 @@ lspconfig.lua_ls.setup({
     },
   },
 })
+
+vim.lsp.enable({ 'gopls', 'ruby_lsp', 'lua_ls' })
 
 -- COMPLETION CONFIGURATION
 -- ------------------------
