@@ -23,3 +23,23 @@
   l = log --graph --pretty=format:'%C(yellow)%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   sw = switch
   co = checkout
+
+  pr-merged = "!f() { \
+    branches=$(gh pr list --state merged --json headRefName --jq '.[].headRefName'); \
+    for branch in $branches; do \
+      case \"$branch\" in main|master|develop|staging|production|sandbox) continue;; esac; \
+      if git show-ref --verify --quiet refs/heads/$branch; then \
+        echo $branch; \
+      fi; \
+    done; \
+  }; f"
+
+  delete-pr-merged = "!f() { \
+    branches=$(gh pr list --state merged --json headRefName --jq '.[].headRefName'); \
+    for branch in $branches; do \
+      case \"$branch\" in main|master|develop|staging|production|sandbox) continue;; esac; \
+      if git show-ref --verify --quiet refs/heads/$branch; then \
+        git branch -D $branch; \
+      fi; \
+    done; \
+  }; f"
